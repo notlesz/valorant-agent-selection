@@ -28,3 +28,18 @@ export interface Agent {
     ];
   };
 }
+
+export interface AgentAbility {
+  slot: string;
+  displayName: string;
+  description: string;
+  displayIcon: string;
+}
+
+export interface AgentInfo {
+  description: string;
+  role: {
+    description: string;
+    displayName: string;
+  };
+}

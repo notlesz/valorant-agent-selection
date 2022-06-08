@@ -6,4 +6,5 @@
 
 body {
   /* @apply bg-[url('./assets/images/background-valorant2.JPG')]; */
+  @apply bg-black
 }
