@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  /* @apply bg-[url('./assets/images/background-valorant2.JPG')]; */
-  @apply bg-black
+  @apply bg-[url('./assets/images/background6.jpg')] bg-cover bg-center bg-no-repeat;
+  /* @apply bg-black */
 }

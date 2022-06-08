@@ -5,7 +5,7 @@ export const useVoiceAgent = () => {
   const [isPlayed, setIsPlayed] = useState<boolean>(false);
 
   const audio = new Audio(voice);
-  audio.volume = 0.5;
+  audio.volume = 1;
 
   const play = () => audio.play();
 

@@ -8,4 +8,8 @@ const api = axios.create({
   }
 });
 
-export const getListAgents = async ():Promise<AxiosResponse> => await api.get("/agents");
+export const getListAgents = async (code: string): Promise<AxiosResponse> => await api.get("/agents", {
+  params: {
+    language: code
+  }
+});
