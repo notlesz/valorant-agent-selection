@@ -27,11 +27,13 @@ function App() {
   const handleShowAgentInfo = () => {
     setShowAgentInfo(true);
     setShowAgentAbility(false);
+    setAgentAbility(undefined)
   };
 
   const handleShowAgentAbility = () => {
     setShowAgentInfo(false);
     setShowAgentAbility(true);
+    setAgentInfo(undefined)
   };
 
   const handleChangelanguage = (option: string) => {
@@ -43,13 +45,14 @@ function App() {
   }, []);
 
   useEffect(() => {
+    setAgentView(undefined)
     getAgents(language)
   }, [language])
 
   return (
     <main
-      className={`relative flex flex-col items-center ${agentView ? "justify-between" : "justify-end"
-        } h-[100vh] overflow-hidden max-w-[1400px]  ml-auto mr-auto m-0 `}
+      className={` flex flex-col items-center ${agentView ? "justify-between" : "justify-end"
+        } h-[100vh] overflow-hidden max-w-[1600px] w-full  ml-auto mr-auto m-0 `}
     >
       {agentView ? (
         <div>
@@ -59,12 +62,12 @@ function App() {
             className=" lg:w-[700px] 2xl:w-[100%] h-[100%] lg:mt-[20px] 2xl:mt-[30px]"
           />
 
-          <div className="absolute left-[75%] lg:top-[20px] 2xl:top-[10%] w-[300px]">
+          <div className="absolute left-[75%] lg:top-[20px] 2xl:top-[10%] 2xl:right-[20%] w-[300px] 2xl:w-[400px]">
             <div className="flex flex-col">
-              <span className="text-[13px] text-white font-codePro uppercase bold tracking-[4px] ">
+              <span className="lg:text-[13px] 2xl:text-[18px] text-white font-codePro uppercase bold tracking-[4px] ">
                 {agentView.role.displayName}
               </span>
-              <span className="text-[50px] text-[#e8ed6a] font-anton uppercase">
+              <span className="text-[50px] 2xl:text-[65px] text-primary font-anton uppercase">
                 {agentView.displayName}
               </span>
             </div>
@@ -75,11 +78,12 @@ function App() {
                     handleShowAgentInfo();
                     setAgentInfo(agentView);
                   }}
+                  className={`2xl:w-[40%] 2xl:h-[60px] flex justify-center items-center border-solid border-[1px] border-transparent hover:bg-select rounded ${agentView === agentInfo ? 'bg-select' : '' }`}
                 >
                   <img
                     src={agentView.role.displayIcon}
                     alt=""
-                    className="w-[30px] h=[30px] cursor-pointer"
+                    className="w-[30px] h-[30px] 2xl:w-[40px] 2xl:h-[40px] cursor-pointer"
                   />
                 </div>
                 {agentView.abilities.map(
@@ -90,12 +94,12 @@ function App() {
                           handleShowAgentAbility();
                           setAgentAbility(ability);
                         }}
-                      // className='w-[50px]'
+                        className={`2xl:w-[40%] 2xl:h-[60px] flex justify-center items-center hover:bg-select border-solid border-[1px] border-transparent rounded ${agentAbility === ability ? 'bg-select' : ''}`}
                       >
                         <img
                           src={ability.displayIcon}
                           alt={ability.displayName}
-                          className="w-[30px] h=[30px] cursor-pointer"
+                          className="w-[30px] h-[30px] 2xl:w-[40px] 2xl:h-[40px] cursor-pointer"
                         />
                       </div>
                     )
@@ -106,7 +110,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <h1 className="font-anton text-[50px] text-[#e8ed6a] uppercase absolute top-[40%]">
+        <h1 className="font-anton text-[50px] text-primary uppercase absolute top-[40%]">
           Select Agent
         </h1>
       )}
@@ -122,7 +126,7 @@ function App() {
                   setAgentInfo(agent);
                   handleShowAgentInfo();
                 }}
-                className={`border-solid border-[1px] border-zinc-400 hover:bg-[#fffdfd36] ${agent === agentView ? 'bg-[#fffdfd36]' : ''}`}
+                className={`border-solid border-[1px] border-zinc-400 hover:bg-select ${agent === agentView ? 'bg-select' : ''}`}
               >
                 <img
                   src={agent.displayIcon}
@@ -135,9 +139,9 @@ function App() {
         )}
       </div>
 
-      <div className='absolute right-[70%] lg:top-[20px]'>
-        <label htmlFor="language" className="font-anton text-[#e8ed6a] text-[23px]">Language </label>
-        <select value={language} onChange={(option) => handleChangelanguage(option.target.value)} name="language" id="language" className="bg-black border-solid border-[1px] border-[#e8ed6a] font-anton px-[10px] text-[#e8ed6a]">
+      <div className='absolute right-[70%] lg:top-[20px] 2xl:right-[80%] 2xl:top-[30px]'>
+        <label htmlFor="language" className="font-anton text-primary text-[23px]">Language </label>
+        <select value={language} onChange={(option) => handleChangelanguage(option.target.value)} name="language" id="language" className="bg-black border-solid border-[1px] border-primary font-anton px-[10px] text-primary">
           {languages.map((language, id) => (
             <option  key={id} value={language.code}>
               {language.name}
