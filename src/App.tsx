@@ -111,7 +111,9 @@ function App() {
         </div>
       ) : (
         <h1 className="font-anton text-[50px] text-primary uppercase absolute top-[40%]">
-          Select Agent
+        {languages.map( (languageSelect) => {
+          if(languageSelect.code === language) return languageSelect.textTranslate 
+        })}
         </h1>
       )}
 
