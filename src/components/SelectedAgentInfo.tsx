@@ -7,7 +7,7 @@ interface Props {
   showInfo: boolean;
 }
 
-function AgentInfoSelect({
+function SelectedAgentInfo({
   agentInfo,
   showInfo,
   agentAbility,
@@ -34,4 +34,4 @@ function AgentInfoSelect({
   );''
 }
 
-export default AgentInfoSelect;
+export default SelectedAgentInfo;
