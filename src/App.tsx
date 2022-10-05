@@ -70,7 +70,7 @@ function App() {
       {agentView ? (
         <div>
           <img
-            src={agentView.bustPortrait}
+            src={agentView.bustPortrait || agentView.fullPortrait || agentView.fullPortraitV2}
             alt={agentView.displayName}
             className=" lg:w-[700px] 2xl:w-[100%] h-[100%] lg:mt-[20px] 2xl:mt-[30px]"
           />
